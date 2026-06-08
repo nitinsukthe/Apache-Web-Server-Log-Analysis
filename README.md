@@ -106,41 +106,6 @@ Incident Report
 
 ---
 
-# Repository Structure
-
-```text
-Apache-Web-Server-Log-Analysis/
-│
-├── README.md
-│
-├── screenshots/
-│   ├── 01-ubuntu-update.png
-│   ├── 02-apache-installed.png
-│   ├── 03-apache-enabled.png
-│   ├── 04-apache-running.png
-│   ├── 05-apache-default-page.png
-│   ├── 06-log-files-list.png
-│   ├── 07-access-log-view.png
-│   ├── 08-404-errors.png
-│   ├── 09-top-ip-addresses.png
-│   ├── 10-most-requested-urls.png
-│   ├── 11-error-log-analysis.png
-│   ├── 12-total-404-count.png
-│   └── 13-security-findings.png
-│
-├── findings/
-│   ├── Security-Findings.md
-│   └── Log-Analysis-Summary.md
-│
-├── commands/
-│   └── log-analysis-commands.txt
-│
-└── report/
-    └── Apache-Web-Server-Log-Analysis-Report.pdf
-```
-
----
-
 # Project Walkthrough
 
 ## Step 1 – Update Ubuntu
