@@ -1,0 +1,203 @@
+#############################################
+# Apache Web Server Log Analysis Lab
+# Analyst: Nitin Sukthe
+# Platform: Ubuntu Linux
+# Purpose: Apache Log Monitoring & Security Analysis
+#############################################
+
+##############################
+# 1. Update Ubuntu Packages
+##############################
+
+sudo apt update
+
+##############################
+# 2. Install Apache Web Server
+##############################
+
+sudo apt install apache2 -y
+
+##############################
+# 3. Start Apache Service
+##############################
+
+sudo systemctl start apache2
+
+##############################
+# 4. Enable Apache on Startup
+##############################
+
+sudo systemctl enable apache2
+
+##############################
+# 5. Verify Apache Status
+##############################
+
+sudo systemctl status apache2
+
+##############################
+# 6. Open Apache Test Page
+##############################
+
+# Browser
+http://localhost
+
+# Alternative
+http://127.0.0.1
+
+##############################
+# 7. Generate Web Traffic
+##############################
+
+curl http://localhost
+
+curl http://localhost
+curl http://localhost
+curl http://localhost
+curl http://localhost
+curl http://localhost
+
+##############################
+# 8. Generate 404 Events
+##############################
+
+curl http://localhost/test
+
+curl http://localhost/admin
+
+curl http://localhost/login
+
+curl http://localhost/secret
+
+##############################
+# 9. Navigate to Apache Logs
+##############################
+
+cd /var/log/apache2
+
+##############################
+# 10. Verify Current Directory
+##############################
+
+pwd
+
+##############################
+# 11. List Available Log Files
+##############################
+
+ls -lh
+
+##############################
+# 12. View Apache Access Logs
+##############################
+
+sudo less access.log
+
+# Exit less
+q
+
+##############################
+# 13. Search for HTTP 404 Errors
+##############################
+
+grep " 404 " access.log
+
+##############################
+# 14. Count Requests by Source IP
+##############################
+
+awk '{print $1}' access.log | sort | uniq -c | sort -nr
+
+##############################
+# 15. Identify Most Requested URLs
+##############################
+
+awk '{print $7}' access.log | sort | uniq -c | sort -nr
+
+##############################
+# 16. Review Apache Error Logs
+##############################
+
+cat error.log
+
+# Alternative
+tail -20 error.log
+
+##############################
+# 17. Count Total 404 Errors
+##############################
+
+grep " 404 " access.log | wc -l
+
+##############################
+# 18. Create Security Findings File
+##############################
+
+nano findings.txt
+
+##############################
+# 19. View Findings File
+##############################
+
+cat findings.txt
+
+##############################
+# 20. Apache Log Analysis Findings
+##############################
+
+Apache Log Analysis Findings
+
+1. Apache web server was running successfully.
+2. Access logs captured HTTP requests.
+3. Source IP identified as 127.0.0.1.
+4. Multiple 404 errors detected.
+5. Requests observed for:
+   - /admin
+   - /login
+   - /test
+   - /secret
+6. These requests may indicate reconnaissance activity.
+7. No critical server errors observed.
+8. Web server operating normally.
+
+##############################
+# Key Analysis Results
+##############################
+
+Top Source IP:
+127.0.0.1
+
+Total Requests:
+22
+
+Most Requested URL:
+/
+
+Total HTTP 404 Errors:
+5
+
+Observed 404 URLs:
+/admin
+/login
+/test
+/secret
+/favicon.ico
+
+Apache Error Log Status:
+No Critical Errors Found
+
+##############################
+# Skills Demonstrated
+##############################
+
+- Linux Administration
+- Apache Web Server Management
+- Access Log Analysis
+- Error Log Analysis
+- HTTP Traffic Investigation
+- Security Monitoring
+- Threat Detection
+- Log Filtering
+- Incident Investigation
+- Security Reporting
+- SOC Operations Fundamentals
